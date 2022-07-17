@@ -1,5 +1,7 @@
+import { GlobalStyle } from './styles/global';
+
 export function App() {
   return (
-    <h1>Create React App</h1>
+    <GlobalStyle />
   );
 }
