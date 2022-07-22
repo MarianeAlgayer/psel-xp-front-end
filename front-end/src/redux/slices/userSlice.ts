@@ -50,9 +50,30 @@ export const userSlice = createSlice({
         });
       }
     },
+    sellShare: (state, action: PayloadAction<IShare>) => {
+      const foundShare = state.investments.shares
+        .find(({ code }) => action.payload.code === code) as IShare;
+
+      if (foundShare.qtd - action.payload.qtd === 0) {
+        state.investments.shares = state.investments.shares
+          .filter((share) => share === action.payload);
+      }
+
+      state.investments.shares = state.investments.shares.map((share) => {
+        if (share.code === action.payload.code) {
+          return {
+            code: share.code,
+            qtd: (share.qtd - action.payload.qtd),
+            value: share.value,
+          };
+        }
+
+        return share;
+      });
+    },
   },
 });
 
-export const { saveEmail, buyShare } = userSlice.actions;
+export const { saveEmail, buyShare, sellShare } = userSlice.actions;
 
 export default userSlice.reducer;
