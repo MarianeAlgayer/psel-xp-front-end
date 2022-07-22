@@ -8,3 +8,9 @@ export interface IShare {
   qtd: number;
   value: number;
 }
+
+export interface IOperation {
+  type: string;
+  qtd: number;
+  value: number;
+}
