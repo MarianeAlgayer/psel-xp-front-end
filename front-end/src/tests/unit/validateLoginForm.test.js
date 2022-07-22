@@ -1,4 +1,4 @@
-import { validateLoginForm } from '../../helpers/validateLoginForm';
+import { validateLoginForm } from '../../helpers/validations';
 
 const validEmail = 'alguem@email.com';
 const invalidEmail = 'email.com';
