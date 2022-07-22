@@ -21,26 +21,24 @@ import {
 
 const HEADERS = ['Ação', 'Qtd', 'Valor (R$)'];
 
-const operationInitialState = {
-  type: '',
-  qtd: 0,
-  value: 0,
-};
-
 export function ShareNegotiation() {
   const { sharesList, selectedShareCode } = useAppSelector((state) => state.shares);
   const userShares = useAppSelector((state) => state.user.investments.shares);
   const userBalance = useAppSelector((state) => state.user.account.balance);
-
-  const [operation, setOperation] = useState<IOperation>(operationInitialState);
-
-  const dispatch = useAppDispatch();
 
   const userShare = userShares
     .find(({ code }) => selectedShareCode === code) as IShare;
 
   const selectedShare = sharesList
     .find(({ code }) => selectedShareCode === code) as IShare;
+
+  const [operation, setOperation] = useState<IOperation>({
+    type: 'compra',
+    qtd: 100,
+    value: selectedShare.value * 100,
+  });
+
+  const dispatch = useAppDispatch();
 
   const payload: IShare = {
     code: selectedShare.code,
