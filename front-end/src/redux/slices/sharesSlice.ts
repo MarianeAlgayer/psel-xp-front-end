@@ -22,9 +22,35 @@ export const sharesSlice = createSlice({
     saveSelectedShare: (state, action: PayloadAction<string>) => {
       state.selectedShareCode = action.payload;
     },
+    addShare: (state, action: PayloadAction<IShare>) => {
+      state.sharesList = state.sharesList.map((share) => {
+        if (share.code === action.payload.code) {
+          return {
+            code: share.code,
+            qtd: (share.qtd + action.payload.qtd),
+            value: share.value,
+          };
+        }
+
+        return share;
+      });
+    },
+    removeShare: (state, action: PayloadAction<IShare>) => {
+      state.sharesList = state.sharesList.map((share) => {
+        if (share.code === action.payload.code) {
+          return {
+            code: share.code,
+            qtd: (share.qtd - action.payload.qtd),
+            value: share.value,
+          };
+        }
+
+        return share;
+      });
+    },
   },
 });
 
-export const { saveSelectedShare } = sharesSlice.actions;
+export const { saveSelectedShare, addShare, removeShare } = sharesSlice.actions;
 
 export default sharesSlice.reducer;

@@ -43,9 +43,13 @@
       "error",
       "never"
     ],
-    "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
-    "global-require": "off",
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react/prop-types": "off",
+    "no-param-reassign": "off",
+    "global-require": "off"
   }
 }
