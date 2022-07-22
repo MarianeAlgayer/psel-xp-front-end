@@ -9,22 +9,17 @@ import { saveEmail } from '../../redux/slices/userSlice';
 import { SubmitButton } from '../../components/SubmitButton';
 import { Input } from '../../components/Input';
 
-import { loginSchema } from '../../helpers/zodSchemas';
+import { validateLoginForm } from '../../helpers/validateLoginForm';
+import { ILogin } from '../../@types/interfaces.d';
 import logoXPI from '../../assets/logo-xpi.svg';
 
 import { LoginContainer, LoginForm } from './styles';
-
-interface ILogin {
-  email: string,
-  password: string,
-}
 
 const storedEmail = localStorage.getItem('@xp-app:user-email');
 const initialLoginData = { email: storedEmail || '', password: '' };
 
 export function Login() {
   const [loginData, setLoginData] = useState<ILogin>(initialLoginData);
-  const [isBtnDisabled, setIsBtnDisabled] = useState<boolean>(true);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -44,14 +39,8 @@ export function Login() {
     navigate('/acoes');
   };
 
-  const validadeForm = () => {
-    const { success } = loginSchema.safeParse(loginData);
-
-    return success ? setIsBtnDisabled(false) : setIsBtnDisabled(true);
-  };
-
   useEffect(() => {
-    validadeForm();
+    validateLoginForm(loginData);
   }, [loginData]);
 
   return (
@@ -83,7 +72,7 @@ export function Login() {
           onChange={handleChange}
         />
 
-        <SubmitButton label="ACESSAR" disabled={isBtnDisabled} />
+        <SubmitButton label="ACESSAR" disabled={!validateLoginForm(loginData)} />
       </LoginForm>
     </LoginContainer>
   );
