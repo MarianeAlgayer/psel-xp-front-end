@@ -9,7 +9,7 @@ import { saveEmail } from '../../redux/slices/userSlice';
 import { SubmitButton } from '../../components/SubmitButton';
 import { Input } from '../../components/Input';
 
-import { validateLoginForm } from '../../helpers/validateLoginForm';
+import { validateLoginForm } from '../../helpers/validations';
 import { ILogin } from '../../@types/interfaces.d';
 import logoXPI from '../../assets/logo-xpi.svg';
 
