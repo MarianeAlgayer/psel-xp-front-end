@@ -71,9 +71,14 @@ export const userSlice = createSlice({
         return share;
       });
     },
+    deposit: (state, action: PayloadAction<number>) => {
+      state.account.balance += action.payload;
+    },
   },
 });
 
-export const { saveEmail, buyShare, sellShare } = userSlice.actions;
+export const {
+  saveEmail, buyShare, sellShare, deposit,
+} = userSlice.actions;
 
 export default userSlice.reducer;
