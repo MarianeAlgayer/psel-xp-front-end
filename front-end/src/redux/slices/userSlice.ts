@@ -74,11 +74,14 @@ export const userSlice = createSlice({
     deposit: (state, action: PayloadAction<number>) => {
       state.account.balance += action.payload;
     },
+    withdraw: (state, action: PayloadAction<number>) => {
+      state.account.balance -= action.payload;
+    },
   },
 });
 
 export const {
-  saveEmail, buyShare, sellShare, deposit,
+  saveEmail, buyShare, sellShare, deposit, withdraw,
 } = userSlice.actions;
 
 export default userSlice.reducer;
