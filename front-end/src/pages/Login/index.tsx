@@ -4,6 +4,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../../redux/hooks';
+import { getSharesAsync } from '../../redux/slices/sharesSlice';
 import { saveEmail } from '../../redux/slices/userSlice';
 
 import { SubmitButton } from '../../components/SubmitButton';
@@ -36,6 +37,7 @@ export function Login() {
     localStorage.setItem('@xp-app:user-email', loginData.email);
 
     dispatch(saveEmail(loginData.email));
+    dispatch(getSharesAsync());
     navigate('/acoes');
   };
 
