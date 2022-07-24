@@ -41,6 +41,7 @@ export function ShareNegotiation() {
   const dispatch = useAppDispatch();
 
   const payload: IShare = {
+    id: selectedShare.id,
     code: selectedShare.code,
     qtd: operation.qtd,
     value: selectedShare.value,

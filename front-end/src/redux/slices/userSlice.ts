@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IShare } from '../../@types/interfaces.d';
 
@@ -40,6 +39,7 @@ export const userSlice = createSlice({
         state.investments.shares = state.investments.shares.map((share) => {
           if (share.code === action.payload.code) {
             return {
+              id: share.id,
               code: share.code,
               qtd: (share.qtd + action.payload.qtd),
               value: share.value,
@@ -62,6 +62,7 @@ export const userSlice = createSlice({
       state.investments.shares = state.investments.shares.map((share) => {
         if (share.code === action.payload.code) {
           return {
+            id: share.id,
             code: share.code,
             qtd: (share.qtd - action.payload.qtd),
             value: share.value,
