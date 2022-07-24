@@ -1,11 +1,14 @@
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { saveSelectedShare } from '../../redux/slices/sharesSlice';
+import { saveSelectedShare, getSharesAsync } from '../../redux/slices/sharesSlice';
 
 import { SharesTable } from '../../components/SharesTable';
 import { SubmitButton } from '../../components/SubmitButton';
+
+import loading from '../../assets/loading.svg';
+import { LoadingContainer } from './styles';
 
 const HEADERS = ['Ação', 'Qtd', 'Valor (R$)', 'Negociar'];
 
@@ -18,6 +21,10 @@ export function Shares() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    dispatch(getSharesAsync());
+  }, []);
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -27,8 +34,12 @@ export function Shares() {
 
   return (
     <main>
-      { status === 'loading' ? <p>Carregando</p>
-        : (
+      { status === 'loading'
+        ? (
+          <LoadingContainer>
+            <img src={loading} alt="Carregando" />
+          </LoadingContainer>
+        ) : (
           <form onSubmit={handleSubmit}>
             <SharesTable
               title="MINHAS AÇÕES"
