@@ -6,7 +6,7 @@ export const LoginContainer = styled.main`
   flex-direction: column;
   height: 100vh;
   justify-content: flex-end;
-  margin: 2rem 24rem;
+  padding: 2rem 20rem;
 
   img {
     height: 10%;
@@ -14,19 +14,19 @@ export const LoginContainer = styled.main`
   }
 
   @media (max-width: 1200px) {
-    margin: 2rem 16rem;
+    padding: 2rem 16rem;
   }
 
   @media (max-width: 1024px) {
-    margin: 2rem 8rem;
+    padding: 2rem 8rem;
   }
 
   @media (max-width: 768px) {
-    margin: 2rem 4rem;
+    padding: 2rem 4rem;
   }
 
   @media (max-width: 480px) {
-    margin: 2rem;
+    padding: 2rem;
   }
 `;
 
