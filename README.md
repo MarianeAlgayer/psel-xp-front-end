@@ -18,7 +18,7 @@ Neste projeto desenvolvi um aplicativo de investimento em ações e conta digita
 
 - É feita a validação do e-email e senha, sendo que o botão para acessar o aplicativo fica desabilitado apenas após a inserção de dados válidos;
 
-- As informações do login (e-mail e data de acesso) ficam salvas no local storage, e no próximo acesso é apresentando o último email logado no input.
+- As informações do login (e-mail e data de acesso) ficam salvas no local storage, e no próximo acesso é apresentando o último e-mail logado no input.
 
 ### Listagem de ações
 
@@ -28,18 +28,18 @@ Neste projeto desenvolvi um aplicativo de investimento em ações e conta digita
 
 ### Compra e venda de ações
 
-- Mostra os dados da ação selecionada e um resumo com os detalhes da operção;
+- Mostra os dados da ação selecionada e um resumo com os detalhes da operação;
 
 - São feitas as seguintes validações:
 
-    - Compra: se o usuário possui saldo sufiente e se a quantidade de ações selecionada está disponível;
+    - Compra: se o usuário possui saldo suficiente e se a quantidade de ações selecionada está disponível;
 
     - Venda: Se o usuário possui a quantidade de ações selecionada. 
 
 
 ### Conta digital
 
-- Mostra o saldo da conta e é possível fazer operções de saque e retirada;
+- Mostra o saldo da conta e é possível fazer operções de saque/retirada;
 
 - É validado se o usuário possui saldo suficiente para realizar a retirada.
 
