@@ -4,7 +4,6 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../../redux/hooks';
-import { getSharesAsync } from '../../redux/slices/sharesSlice';
 import { saveEmail } from '../../redux/slices/userSlice';
 
 import { SubmitButton } from '../../components/SubmitButton';
@@ -15,11 +14,12 @@ import { ILogin } from '../../@types/interfaces.d';
 import logoXPI from '../../assets/logo-xpi.svg';
 
 import { LoginContainer, LoginForm } from './styles';
-
-const storedEmail = localStorage.getItem('@xp-app:user-email');
-const initialLoginData = { email: storedEmail || '', password: '' };
+import { getLocalStorage, saveLocalStorage } from '../../helpers/localStorage';
 
 export function Login() {
+  const storedLoginData = getLocalStorage();
+  const initialLoginData = { email: storedLoginData.email || '', password: '' };
+
   const [loginData, setLoginData] = useState<ILogin>(initialLoginData);
 
   const dispatch = useAppDispatch();
@@ -34,10 +34,9 @@ export function Login() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    localStorage.setItem('@xp-app:user-email', loginData.email);
+    saveLocalStorage(loginData.email);
 
     dispatch(saveEmail(loginData.email));
-    dispatch(getSharesAsync());
     navigate('/acoes');
   };
 
