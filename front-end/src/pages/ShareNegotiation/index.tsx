@@ -131,7 +131,7 @@ export function ShareNegotiation() {
         </OperationTypeButtonsContainer>
 
         <OperationSummary>
-          <h2>RESUMO OPERÇÃO</h2>
+          <h2>RESUMO DA OPERAÇÃO</h2>
           <p>{`Tipo: ${operation.type}`}</p>
           <p>{`Quantidade: ${operation.qtd}`}</p>
           <p>
