@@ -18,7 +18,7 @@ Neste projeto desenvolvi um aplicativo de investimento em ações e conta digita
 
 - É feita a validação do e-email e senha, sendo que o botão para acessar o aplicativo fica desabilitado apenas após a inserção de dados válidos;
 
-- O e-email fica salvo no local storage e no próximo acesso é apresentando o último email logado no input.
+- As informações do login (e-mail e data de acesso) ficam salvas no local storage, e no próximo acesso é apresentando o último email logado no input.
 
 ### Listagem de ações
 
