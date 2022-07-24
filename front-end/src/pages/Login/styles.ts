@@ -6,11 +6,27 @@ export const LoginContainer = styled.main`
   flex-direction: column;
   height: 100vh;
   justify-content: flex-end;
-  padding: 2rem;
+  margin: 2rem 24rem;
 
   img {
     height: 10%;
     margin: auto 0;
+  }
+
+  @media (max-width: 1200px) {
+    margin: 2rem 16rem;
+  }
+
+  @media (max-width: 1024px) {
+    margin: 2rem 8rem;
+  }
+
+  @media (max-width: 768px) {
+    margin: 2rem 4rem;
+  }
+
+  @media (max-width: 480px) {
+    margin: 2rem;
   }
 `;
 
